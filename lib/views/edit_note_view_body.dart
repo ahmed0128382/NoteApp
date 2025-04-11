@@ -14,7 +14,10 @@ class EditNoteViewBody extends StatelessWidget {
           const SizedBox(
             height: 50,
           ),
-          const CustomAppBar(
+          CustomAppBar(
+            onchanged: () {
+              Navigator.pop(context);
+            },
             title: 'Edit Note',
             icon: Icons.check,
           ),
