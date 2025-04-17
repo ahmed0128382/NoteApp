@@ -7,18 +7,21 @@ class CustomFormTextField extends StatelessWidget {
       required this.label,
       this.onchanged,
       this.obscureText = false,
-      required this.padding});
+      required this.padding,
+      this.onSaved});
   String label;
   double padding;
   bool obscureText;
   Function(String)? onchanged;
+  final void Function(String?)? onSaved;
   @override
   Widget build(BuildContext context) {
     return TextFormField(
       obscureText: obscureText,
+      onSaved: onSaved,
       style: TextStyle(color: Colors.greenAccent),
       validator: (data) {
-        if (data!.isEmpty) {
+        if (data?.isEmpty ?? true) {
           return 'enter a value';
         }
         return null;

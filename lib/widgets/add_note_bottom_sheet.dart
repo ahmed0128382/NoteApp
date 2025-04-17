@@ -7,8 +7,33 @@ class AddNoteBottomSheet extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 16.0),
+    return const Padding(
+      padding: EdgeInsets.symmetric(horizontal: 16.0),
+      child: SingleChildScrollView(
+        child: AddNoteForm(),
+      ),
+    );
+  }
+}
+
+class AddNoteForm extends StatefulWidget {
+  const AddNoteForm({
+    super.key,
+  });
+
+  @override
+  State<AddNoteForm> createState() => _AddNoteFormState();
+}
+
+class _AddNoteFormState extends State<AddNoteForm> {
+  final GlobalKey<FormState> formKey = GlobalKey();
+  AutovalidateMode autovalidateMode = AutovalidateMode.disabled;
+  String? title, subTitle;
+  @override
+  Widget build(BuildContext context) {
+    return Form(
+      key: formKey,
+      autovalidateMode: autovalidateMode,
       child: Column(
         //mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         children: [
@@ -16,6 +41,9 @@ class AddNoteBottomSheet extends StatelessWidget {
             height: 16,
           ),
           CustomFormTextField(
+            onSaved: (data) {
+              title = data;
+            },
             label: 'Title',
             padding: 24,
           ),
@@ -23,13 +51,25 @@ class AddNoteBottomSheet extends StatelessWidget {
             height: 18,
           ),
           CustomFormTextField(
+            onSaved: (data) {
+              subTitle = data;
+            },
             label: 'Content',
             padding: 56,
           ),
           SizedBox(
             height: 48,
           ),
-          CustomButton(text: 'Add'),
+          CustomButton(
+              onTap: () {
+                if (formKey.currentState!.validate()) {
+                  formKey.currentState!.save();
+                } else {
+                  autovalidateMode = AutovalidateMode.always;
+                  setState(() {});
+                }
+              },
+              text: 'Add'),
         ],
       ),
     );
