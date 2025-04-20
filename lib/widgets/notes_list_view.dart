@@ -9,12 +9,19 @@ class NotesListView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BlocBuilder<NotesCubit, NotesState>(
+    return BlocConsumer<NotesCubit, NotesState>(
+      listener: (context, state) {
+        if (state is NotesSuccess) {
+          debugPrint(
+              'NotesSuccess state received with ${state.notes.length} notes.');
+        }
+      },
       builder: (context, state) {
-        List<NoteModel> notes = BlocProvider.of<NotesCubit>(context).notes!;
-        return Padding(
-          padding: const EdgeInsets.only(bottom: 16),
-          child: ListView.builder(
+        if (state is NotesSuccess) {
+          List<NoteModel> notes = state.notes;
+          return Padding(
+            padding: const EdgeInsets.only(bottom: 16),
+            child: ListView.builder(
               padding: EdgeInsets.zero,
               itemCount: notes.length,
               itemBuilder: (context, index) {
@@ -24,8 +31,13 @@ class NotesListView extends StatelessWidget {
                     note: notes[index],
                   ),
                 );
-              }),
-        );
+              },
+            ),
+          );
+        } else {
+          // Loading or fallback UI
+          return Center(child: CircularProgressIndicator());
+        }
       },
     );
   }
