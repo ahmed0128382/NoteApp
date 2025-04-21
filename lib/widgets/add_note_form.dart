@@ -47,13 +47,16 @@ class _AddNoteFormState extends State<AddNoteForm> {
             hint: 'Content',
             padding: 56,
           ),
+          SizedBox(
+            height: 32,
+          ),
           const ColorsListView(),
           // Flexible(
           //   // Make sure the ListView can stretch horizontally
           //   child: ColorsListView(),
           // ),
           SizedBox(
-            height: 48,
+            height: 32,
           ),
           BlocBuilder<AddNoteCubit, AddNoteState>(
             builder: (context, state) {
