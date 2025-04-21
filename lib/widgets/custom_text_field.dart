@@ -8,7 +8,9 @@ class CustomFormTextField extends StatelessWidget {
       this.onchanged,
       this.obscureText = false,
       required this.padding,
-      this.onSaved});
+      this.onSaved,
+      this.initial});
+  final String? initial;
   final String hint;
   final double padding;
   final bool obscureText;
@@ -17,7 +19,7 @@ class CustomFormTextField extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return TextFormField(
-      initialValue: hint,
+      initialValue: initial,
       obscureText: obscureText,
       onSaved: onSaved,
       style: TextStyle(color: Colors.greenAccent),

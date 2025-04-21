@@ -42,7 +42,8 @@ class _EditNoteViewBodyState extends State<EditNoteViewBody> {
             onchanged: (value) {
               title = value;
             },
-            hint: widget.note.title,
+            initial: widget.note.title,
+            hint: 'title',
             padding: 24,
           ),
           const SizedBox(
@@ -52,7 +53,8 @@ class _EditNoteViewBodyState extends State<EditNoteViewBody> {
             onchanged: (value) {
               content = value;
             },
-            hint: widget.note.subTitle,
+            initial: widget.note.subTitle,
+            hint: 'Content',
             padding: 56,
           ),
         ],
