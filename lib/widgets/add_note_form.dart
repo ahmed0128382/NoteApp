@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:storeapp/cubits/add_note_cubit/add_note_cubit.dart';
 import 'package:storeapp/models/note_model.dart';
+import 'package:storeapp/widgets/colors_list_view.dart';
 import 'package:storeapp/widgets/custom_button.dart';
 import 'package:storeapp/widgets/custom_text_field.dart';
 
@@ -46,6 +47,11 @@ class _AddNoteFormState extends State<AddNoteForm> {
             hint: 'Content',
             padding: 56,
           ),
+          const ColorsListView(),
+          // Flexible(
+          //   // Make sure the ListView can stretch horizontally
+          //   child: ColorsListView(),
+          // ),
           SizedBox(
             height: 48,
           ),
