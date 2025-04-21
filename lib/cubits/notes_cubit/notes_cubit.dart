@@ -13,6 +13,6 @@ class NotesCubit extends Cubit<NotesState> {
     notes = notesBox.values.toList();
 
     emit(NotesSuccess(notes ?? []));
-    print('fetchAllNotes called and NotesSuccess emitted');
+    //print('fetchAllNotes called and NotesSuccess emitted');
   }
 }

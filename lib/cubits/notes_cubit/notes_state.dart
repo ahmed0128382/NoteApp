@@ -10,9 +10,6 @@ final class NotesSuccess extends NotesState {
   final List<NoteModel> notes;
 
   NotesSuccess(this.notes);
-
-  @override
-  List<Object> get props => [notes];
 }
 //   final List<NoteModel> notes;
 

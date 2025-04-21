@@ -1,15 +1,14 @@
 import 'package:flutter/material.dart';
 
 // ignore: must_be_immutable
-class CustomSearchIcon extends StatelessWidget {
-  const CustomSearchIcon(
-      {super.key, required this.icon, required this.onchanged});
-  final GestureTapCallback? onchanged;
+class CustomIcon extends StatelessWidget {
+  const CustomIcon({super.key, required this.icon, required this.onTap});
+  final GestureTapCallback? onTap;
   final IconData icon;
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: onchanged,
+      onTap: onTap,
       child: Container(
         height: 45,
         width: 45,

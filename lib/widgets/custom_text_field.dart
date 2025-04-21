@@ -2,17 +2,17 @@ import 'package:flutter/material.dart';
 
 // ignore: must_be_immutable
 class CustomFormTextField extends StatelessWidget {
-  CustomFormTextField(
+  const CustomFormTextField(
       {super.key,
-      required this.label,
+      required this.hint,
       this.onchanged,
       this.obscureText = false,
       required this.padding,
       this.onSaved});
-  String label;
-  double padding;
-  bool obscureText;
-  Function(String)? onchanged;
+  final String hint;
+  final double padding;
+  final bool obscureText;
+  final Function(String)? onchanged;
   final void Function(String?)? onSaved;
   @override
   Widget build(BuildContext context) {
@@ -35,7 +35,7 @@ class CustomFormTextField extends StatelessWidget {
             OutlineInputBorder(borderSide: BorderSide(color: Colors.white)),
         focusedBorder: OutlineInputBorder(
             borderSide: BorderSide(color: Colors.greenAccent)),
-        hintText: label,
+        hintText: hint,
         // label: Text(
         //   label,
         //   style: TextStyle(color: Colors.greenAccent),

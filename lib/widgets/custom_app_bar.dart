@@ -1,14 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:storeapp/widgets/custom_search_icon.dart';
+import 'package:storeapp/widgets/custom_icon.dart';
 
 class CustomAppBar extends StatelessWidget {
   const CustomAppBar(
-      {super.key,
-      required this.title,
-      required this.icon,
-      required this.onchanged});
+      {super.key, required this.title, required this.icon, this.onTap});
   final String title;
-  final GestureTapCallback onchanged;
+  final GestureTapCallback? onTap;
   final IconData icon;
   @override
   Widget build(BuildContext context) {
@@ -21,8 +18,8 @@ class CustomAppBar extends StatelessWidget {
           ),
         ),
         Spacer(),
-        CustomSearchIcon(
-          onchanged: onchanged,
+        CustomIcon(
+          onTap: onTap,
           icon: icon,
         ),
       ],

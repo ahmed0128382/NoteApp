@@ -33,7 +33,7 @@ class _AddNoteFormState extends State<AddNoteForm> {
             onSaved: (data) {
               title = data;
             },
-            label: 'Title',
+            hint: 'Title',
             padding: 24,
           ),
           SizedBox(
@@ -43,7 +43,7 @@ class _AddNoteFormState extends State<AddNoteForm> {
             onSaved: (data) {
               subTitle = data;
             },
-            label: 'Content',
+            hint: 'Content',
             padding: 56,
           ),
           SizedBox(
