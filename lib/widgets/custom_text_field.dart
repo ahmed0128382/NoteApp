@@ -17,6 +17,7 @@ class CustomFormTextField extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return TextFormField(
+      initialValue: hint,
       obscureText: obscureText,
       onSaved: onSaved,
       style: TextStyle(color: Colors.greenAccent),
